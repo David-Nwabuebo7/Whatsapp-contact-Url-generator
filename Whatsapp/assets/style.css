@@ -1,0 +1,89 @@
+body {
+  font-family: "poppins", sans-serif;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #5f9341;
+  margin-bottom: 4px;
+  font-family: "poppins", sans-serif;
+}
+
+input::-moz-placeholder {
+  font-family: "poppins", sans-serif;
+}
+
+input:-ms-input-placeholder {
+  font-family: "poppins", sans-serif;
+}
+
+input::placeholder {
+  font-family: "poppins", sans-serif;
+}
+
+button {
+  background: #5f9341;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: "poppins", sans-serif;
+  font-weight: 200;
+}
+
+.content {
+  border: solid 1px black;
+}
+
+.header {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+a {
+  color: #5f9341;
+}
+
+li {
+  margin-top: 5px;
+}
+
+ul {
+  margin-top: 20px;
+  padding-left: 15px;
+}
+
+.error {
+  color: red;
+}
+
+.close {
+  cursor: pointer;
+  color: black;
+  float: right;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  justify-content: center;
+  margin-left: 25%;
+}
+
+.header {
+  text-transform: uppercase;
+  color: aqua;
+}/*# sourceMappingURL=whatsapp.css.map */
