@@ -7,3 +7,8 @@ User-friendly interface for entering phone number and message.
 Generates a clickable WhatsApp contact link.
 Handles invalid phone number inputs.
 Responsive design for various screen sizes.
+
+# Technologies Used
+HTML
+CSS
+JavaScript
