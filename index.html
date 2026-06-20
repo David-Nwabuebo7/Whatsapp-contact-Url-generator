@@ -1,28 +1,51 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>WHATSAPP URL</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"  defer ></script>
-    </head>
-    <body>
-        <form action="#">
-     <div class="container">
-         <h1 class="header">
-             Whatsapp URL Generator
-         </h1>
-         <fieldset class="content">
-             <input type="number" name="" id="enter" value="" placeholder=" Enter your whatsapp number(with country code)...">
-             <br />
-             <button class="button" type="submit">Start</button>
-             <button type="submit" class="save">Save Links</button>
-             <ul class="ListItems">
-              
-             </ul>
-         </fieldset>
+<!doctype html>
+<html lang="en"><head><script src="/_sdk/telemetry_sdk.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Link Generator</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .result-box { word-break: break-all; }
+    </style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/resizing_sdk.js" type="text/javascript"></script>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen flex items-center justify-center p-4" style="background: rgb(7, 94, 84);">
+  <main class="w-full max-w-md">
+   <div data-template-id="card" class="canva-card rounded-2xl p-8 shadow-xl" style="background: rgb(255, 255, 255);">
+    <h1 data-template-id="title" class="canva-text text-center mb-6" style="color: rgb(7, 94, 84); font-weight: 700; font-style: normal; font-size: 32px;">WhatsApp Link Generator</h1><label data-template-id="phone-label" class="canva-text block mb-1 font-medium" for="phone" style="color: rgb(31, 41, 55); font-weight: 400; font-style: normal; font-size: 16px;">Phone number (with country code)</label> <input id="phone" type="tel" placeholder="+234 800 000 0000" class="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-green-500"> <label data-template-id="message-label" class="canva-text block mb-1 font-medium" for="msg" style="color: rgb(31, 41, 55); font-weight: 400; font-style: normal; font-size: 16px;">Message (optional)</label> <textarea id="msg" rows="3" placeholder="Hi! I'd like to enquire about..." class="w-full border border-gray-300 rounded-lg px-4 py-3 mb-5 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"></textarea> <button data-template-id="generate-btn" class="canva-button w-full py-3 rounded-lg font-semibold text-lg transition hover:opacity-90" onclick="generate()" style="background: rgb(37, 211, 102); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Generate Link</button>
+    <div id="result" class="hidden mt-5">
+     <p data-template-id="result-label" class="canva-text text-sm mb-2 font-medium" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Your WhatsApp link:</p>
+     <div class="bg-gray-100 rounded-lg p-3 result-box flex items-center gap-2"><span id="url-output" class="flex-1 text-sm text-gray-800 select-all"></span>
      </div>
-    </form>
-    </body>
+     <div class="flex gap-3 mt-3"><button data-template-id="copy-btn" class="canva-button flex-1 py-2 rounded-lg font-medium transition hover:opacity-90" onclick="copyUrl()" style="background: rgb(229, 231, 235); color: rgb(31, 41, 55); font-weight: 400; font-style: normal; font-size: 16px;">Copy</button> <button data-template-id="open-btn" class="canva-button flex-1 py-2 rounded-lg font-medium transition hover:opacity-90" onclick="openUrl()" style="background: rgb(7, 94, 84); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Open</button>
+     </div>
+    </div>
+   </div>
+  </main>
+  <script src="/_sdk/editing_sdk.js"></script>
+  <script>
+        let generatedUrl = '';
 
-</html>
+        function generate() {
+            const phone = document.getElementById('phone').value.replace(/[^0-9]/g, '');
+            if (!phone) { document.getElementById('phone').focus(); return; }
+            const msg = document.getElementById('msg').value.trim();
+            generatedUrl = 'https://wa.me/' + phone + (msg ? '?text=' + encodeURIComponent(msg) : '');
+            document.getElementById('url-output').textContent = generatedUrl;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        function copyUrl() {
+            navigator.clipboard.writeText(generatedUrl);
+        }
+
+        function openUrl() {
+            window.open(generatedUrl, '_blank');
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0e99f53917448bf',t:'MTc4MTk0NjQzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body></html>
